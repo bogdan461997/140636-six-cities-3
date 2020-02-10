@@ -67,6 +67,7 @@ const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
+              {/* eslint-disable-next-line react/prop-types */}
               <b className="places__found">{props.placesCount} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
@@ -114,7 +115,7 @@ const Main = (props) => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '80%' }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -145,7 +146,7 @@ const Main = (props) => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '80%' }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -177,7 +178,7 @@ const Main = (props) => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '80%' }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -211,7 +212,7 @@ const Main = (props) => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{width: '100%'}}></span>
+                        <span style={{width: `100%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -242,7 +243,7 @@ const Main = (props) => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '80%' }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
