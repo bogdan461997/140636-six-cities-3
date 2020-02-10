@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
 
-const placesCount = 312;
+const PLACES_COUNT = 312;
 
 ReactDOM.render(
-    <App placesCount={placesCount} />,
+    <App placesCount={PLACES_COUNT} />,
     document.getElementById(`root`)
 );
