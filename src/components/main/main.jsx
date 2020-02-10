@@ -1,5 +1,6 @@
 import React from "react";
 
+// eslint-disable-next-line react/prop-types
 const Main = ({placesCount}) => {
   return (
     <div className="page page--gray page--main">
@@ -67,7 +68,6 @@ const Main = ({placesCount}) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              {/* eslint-disable-next-line react/prop-types */}
               <b className="places__found">{placesCount} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
