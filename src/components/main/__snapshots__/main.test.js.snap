@@ -164,7 +164,7 @@ exports[`Main renders correctly 1`] = `
           <b
             className="places__found"
           >
-            11
+            2
              places to stay in Amsterdam
           </b>
           <form
@@ -311,6 +311,7 @@ exports[`Main renders correctly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
@@ -412,6 +413,7 @@ exports[`Main renders correctly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"

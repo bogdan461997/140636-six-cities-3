@@ -6,7 +6,12 @@ it(`Main renders correctly`, () => {
   const placesInCity = [`Canal View Prinsengracht`, `Wood and stone place`];
 
   const tree = renderer
-    .create(<Main placesCount={11} placesInCity={placesInCity}></Main>)
+    .create(
+        <Main
+          placesInCity={placesInCity}
+          onCardNameClick={() => { }}
+        />
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

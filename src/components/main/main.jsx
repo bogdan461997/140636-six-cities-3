@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-
-const Main = ({placesCount, placesInCity}) => {
+const Main = ({placesInCity, onCardNameClick}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -69,7 +68,7 @@ const Main = ({placesCount, placesInCity}) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{placesCount} places to stay in Amsterdam</b>
+              <b className="places__found">{placesInCity.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -93,7 +92,7 @@ const Main = ({placesCount, placesInCity}) => {
               </form>
               <div className="cities__places-list places__list tabs__content">
                 {placesInCity.map((placeName, index) => (
-                  <article key={index} className="cities__place-card place-card">
+                  <article key={placeName + index} className="cities__place-card place-card">
                     <div className="place-card__mark">
                       <span>Premium</span>
                     </div>
@@ -121,7 +120,7 @@ const Main = ({placesCount, placesInCity}) => {
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
-                      <h2 className="place-card__name">
+                      <h2 onClick={onCardNameClick} className="place-card__name">
                         <a href="#">{placeName}</a>
                       </h2>
                       <p className="place-card__type">Apartment</p>
@@ -141,7 +140,7 @@ const Main = ({placesCount, placesInCity}) => {
 };
 
 Main.propTypes = {
-  placesCount: PropTypes.number.isRequired,
+  onCardNameClick: PropTypes.func,
   placesInCity: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
