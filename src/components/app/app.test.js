@@ -8,5 +8,6 @@ it(`App renders correctly`, () => {
   const tree = renderer
     .create(<App placesInCity={placesInCity}></App>)
     .toJSON();
+    
   expect(tree).toMatchSnapshot();
 });
