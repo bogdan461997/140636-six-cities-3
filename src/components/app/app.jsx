@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const cardNameClickHandler = () => { };
 
-
 const App = ({placesInCity}) => {
   return (
     <Main
