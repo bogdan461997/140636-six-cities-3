@@ -13,6 +13,6 @@ it(`Main renders correctly`, () => {
         />
     )
     .toJSON();
-    
+
   expect(tree).toMatchSnapshot();
 });
