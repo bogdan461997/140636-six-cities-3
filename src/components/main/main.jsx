@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-
-const Main = ({placesInCity}) => {
+const Main = ({placesInCity, onCardNameClick}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -121,7 +120,7 @@ const Main = ({placesInCity}) => {
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
-                      <h2 className="place-card__name">
+                      <h2 onClick={onCardNameClick} className="place-card__name">
                         <a href="#">{placeName}</a>
                       </h2>
                       <p className="place-card__type">Apartment</p>
@@ -141,6 +140,7 @@ const Main = ({placesInCity}) => {
 };
 
 Main.propTypes = {
+  onCardNameClick: PropTypes.func,
   placesInCity: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 

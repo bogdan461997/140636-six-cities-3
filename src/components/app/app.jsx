@@ -2,8 +2,15 @@ import React from "react";
 import Main from "../main/main.jsx";
 import PropTypes from 'prop-types';
 
+const cardNameClickHandler = () => { };
+
 const App = ({placesInCity}) => {
-  return <Main placesInCity={placesInCity}/>;
+  return (
+    <Main
+      onCardNameClick={cardNameClickHandler}
+      placesInCity={placesInCity}
+    />
+  );
 };
 
 App.propTypes = {
