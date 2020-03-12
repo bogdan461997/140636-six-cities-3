@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import PlaceCard from './place-card.jsx';
+import Offer from './offer.jsx';
 
 const offer = {
   bedrooms: 3,
@@ -24,12 +24,10 @@ const offer = {
   type: `apartment`
 };
 
-it(`PlaceCard is rendered correctly`, () => {
+it(`Offer is rendered correctly`, () => {
   const tree = renderer.create(
-      <PlaceCard
+      <Offer
         offer={offer}
-        onCardNameClick={() => {}}
-        onPlaceCardMouseOver={() => {}}
       />
   ).toJSON();
 

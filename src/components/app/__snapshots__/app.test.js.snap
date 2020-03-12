@@ -268,8 +268,7 @@ exports[`App renders correctly 1`] = `
                     <span
                       className="place-card__price-text"
                     >
-                      / 
-                      night
+                      / night
                     </span>
                   </div>
                   <button
@@ -319,13 +318,13 @@ exports[`App renders correctly 1`] = `
                   <a
                     href="#"
                   >
-                    Beautiful & luxurious apartment at great location
+                    Beautiful & luxurious studio at great location
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  apartment
                 </p>
               </div>
             </article>
@@ -343,7 +342,7 @@ exports[`App renders correctly 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/apartment-02.jpg"
+                    src="img/room.jpg"
                     width="260"
                   />
                 </a>
@@ -361,13 +360,12 @@ exports[`App renders correctly 1`] = `
                       className="place-card__price-value"
                     >
                       €
-                      132
+                      80
                     </b>
                     <span
                       className="place-card__price-text"
                     >
-                      / 
-                      night
+                      / night
                     </span>
                   </div>
                   <button
@@ -399,7 +397,7 @@ exports[`App renders correctly 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "80%",
+                          "width": "60%",
                         }
                       }
                     />
@@ -417,13 +415,13 @@ exports[`App renders correctly 1`] = `
                   <a
                     href="#"
                   >
-                    Canal View Prinsengracht
+                    Wood and stone place
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  Private room
                 </p>
               </div>
             </article>
