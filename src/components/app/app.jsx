@@ -2,19 +2,17 @@ import React from "react";
 import Main from "../main/main.jsx";
 import PropTypes from 'prop-types';
 
-const cardNameClickHandler = () => { };
-
-const App = ({placesInCity}) => {
+const App = ({offers}) => {
   return (
     <Main
-      onCardNameClick={cardNameClickHandler}
-      placesInCity={placesInCity}
+      onCardNameClick={() => { }}
+      offers={offers}
     />
   );
 };
 
 App.propTypes = {
-  placesInCity: PropTypes.arrayOf(PropTypes.string).isRequired
+  offers: PropTypes.array.isRequired
 };
 
 export default App;
