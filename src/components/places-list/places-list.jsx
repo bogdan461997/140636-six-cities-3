@@ -17,7 +17,7 @@ class PlacesList extends PureComponent {
       <div className="cities__places-list places__list tabs__content">
         {offers.map((offer, index) => (
           <PlaceCard
-            key={offer.name + index}
+            key={offer.id + index}
             offer={offer}
             onCardNameClick={onCardNameClick}
             onPlaceCardMouseOver={

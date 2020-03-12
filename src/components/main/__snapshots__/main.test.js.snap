@@ -268,8 +268,7 @@ exports[`Main renders correctly 1`] = `
                     <span
                       className="place-card__price-text"
                     >
-                      / 
-                      night
+                      / night
                     </span>
                   </div>
                   <button
@@ -319,13 +318,13 @@ exports[`Main renders correctly 1`] = `
                   <a
                     href="#"
                   >
-                    Beautiful & luxurious apartment at great location
+                    Beautiful & luxurious studio at great location
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  apartment
                 </p>
               </div>
             </article>
