@@ -3,10 +3,29 @@ import App from './app.jsx';
 import renderer from 'react-test-renderer';
 
 it(`App renders correctly`, () => {
-  const placesInCity = [`Nice, cozy, warm big bed apartment`, `Wood and stone place`];
+  const offers = [
+    {
+      price: 120,
+      priceText: `night`,
+      rating: 80,
+      isPremium: true,
+      picture: `img/apartment-01.jpg`,
+      name: `Beautiful & luxurious apartment at great location`,
+      type: `Apartment`,
+    },
+    {
+      price: 132,
+      priceText: `night`,
+      rating: 80,
+      isPremium: false,
+      picture: `img/apartment-02.jpg`,
+      name: `Canal View Prinsengracht`,
+      type: `Apartment`,
+    },
+  ];
 
   const tree = renderer
-    .create(<App placesInCity={placesInCity}></App>)
+    .create(<App offers={offers}></App>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
