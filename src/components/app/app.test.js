@@ -49,7 +49,10 @@ it(`App renders correctly`, () => {
   ];
 
   const tree = renderer
-    .create(<App offers={offers}></App>)
+    .create(<App offers={offers}></App>, {
+      createNodeMock: () => {
+        return document.createElement(`div`);
+      }})
     .toJSON();
 
   expect(tree).toMatchSnapshot();
