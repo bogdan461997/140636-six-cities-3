@@ -14,7 +14,7 @@ class PlacesList extends PureComponent {
   render() {
     const {offers, onCardNameClick} = this.props;
     return (
-      <div className="cities__places-list places__list tabs__content">
+      <React.Fragment>
         {offers.map((offer, index) => (
           <PlaceCard
             key={offer.id + index}
@@ -27,14 +27,14 @@ class PlacesList extends PureComponent {
                 });
               }}
           />))}
-      </div>
+      </React.Fragment>
     );
   }
 }
 
 PlacesList.propTypes = {
   offers: PropTypes.array.isRequired,
-  onCardNameClick: PropTypes.func.isRequired
+  onCardNameClick: PropTypes.func,
 };
 
 export default PlacesList;

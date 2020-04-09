@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import PlacesList from '../places-list/places-list.jsx';
+import PlacesListMain from '../places-list-main/places-list-main.jsx';
 import Map from '../map/map.jsx';
 
 const Main = ({offers, onCardNameClick}) => {
@@ -92,10 +92,12 @@ const Main = ({offers, onCardNameClick}) => {
                   <option className="places__option" value="top-rated">Top rated first</option>
                 </select> */}
               </form>
-              <PlacesList offers={offers} onCardNameClick={onCardNameClick} />
+              <PlacesListMain offers={offers} onCardNameClick={onCardNameClick}/>
             </section>
             <div className="cities__right-section">
-              <Map offers={offers} ></Map>
+              <section className="cities__map map">
+                <Map offers={offers} ></Map>
+              </section>
             </div>
           </div>
         </div>
@@ -106,7 +108,7 @@ const Main = ({offers, onCardNameClick}) => {
 
 Main.propTypes = {
   onCardNameClick: PropTypes.func,
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
 };
 
 export default Main;

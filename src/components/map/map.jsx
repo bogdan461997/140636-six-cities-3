@@ -7,42 +7,51 @@ const ICON_CONFIG = {
   iconSize: [30, 30]
 };
 
+const ICON_ACIVE_CONFIG = {
+  iconUrl: `img/pin-active.svg`,
+  iconSize: [30, 30]
+};
+
 class Map extends PureComponent {
   constructor(props) {
     super(props);
     this._mapRef = createRef();
+    this.map = null;
   }
 
   render() {
     return (
-      <section ref={this._mapRef} className="cities__map map">
-      </section>
+      <div ref={this._mapRef} style={{width: `100%`, height: `100%`}}></div>
     );
   }
 
   componentDidMount() {
     const city = [52.38333, 4.9];
 
-    const icon = leaflet.icon(ICON_CONFIG);
-
     const zoom = 12;
-    const map = leaflet.map(this._mapRef.current, {
+    this.map = leaflet.map(this._mapRef.current, {
       center: city,
       zoom: 12,
       zoomControl: false,
       marker: true
     });
-    map.setView(city, zoom);
+    this.map.setView(city, zoom);
 
     leaflet.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
-    }).addTo(map);
+    }).addTo(this.map);
 
-    this.props.offers.forEach((offer) => {
-      if (offer.location && offer.location.latitude && offer.location.longitude) {
+    this.addPlacesToMap(this.props.offers, ICON_CONFIG);
+    this.addPlacesToMap(this.props.activeOffers, ICON_ACIVE_CONFIG);
+  }
+
+
+  addPlacesToMap(places = [], iconConfig) {
+    places.forEach((place) => {
+      if (place.location && place.location.latitude && place.location.longitude) {
         leaflet
-        .marker([offer.location.latitude, offer.location.longitude], {icon})
-        .addTo(map);
+          .marker([place.location.latitude, place.location.longitude], {icon: leaflet.icon(iconConfig)})
+          .addTo(this.map);
       }
     });
   }
@@ -50,6 +59,7 @@ class Map extends PureComponent {
 
 Map.propTypes = {
   offers: PropTypes.array.isRequired,
+  activeOffers: PropTypes.array
 };
 
 export default Map;

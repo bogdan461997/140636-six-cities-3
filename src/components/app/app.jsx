@@ -22,7 +22,22 @@ class App extends PureComponent {
             {this._renderApp()}
           </Route>
           <Route exact path="/dev-offer">
-            <Offer />
+            <Offer
+              onCardNameClick={(value) => {
+                this.setState({
+                  step: 0,
+                  offer: value
+                });
+              }}
+              offers={this.props.offers}
+              offer={this.props.offers[0]}
+              onPlaceCardMouseOver={
+                (value) => {
+                  this.setState({
+                    selecdPlaceCard: value,
+                  });
+                }}
+            />
           </Route>
         </Switch>
       </BrowserRouter>
@@ -42,12 +57,33 @@ class App extends PureComponent {
             });
           }}
           offers={offers}
+          onPlaceCardMouseOver={
+            (value) => {
+              this.setState({
+                selecdPlaceCard: value,
+              });
+            }}
         />
       );
     }
 
     if (this.state.step === 0) {
-      return <Offer offer={this.state.offer} />;
+      return (<Offer
+        offer={this.state.offer}
+        onCardNameClick={(value) => {
+          this.setState({
+            step: 0,
+            offer: value
+          });
+        }}
+        offers={offers}
+        onPlaceCardMouseOver={
+          (value) => {
+            this.setState({
+              selecdPlaceCard: value,
+            });
+          }}
+      />);
     }
 
     return null;

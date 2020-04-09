@@ -522,7 +522,16 @@ exports[`Main renders correctly 1`] = `
         >
           <section
             className="cities__map map"
-          />
+          >
+            <div
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            />
+          </section>
         </div>
       </div>
     </div>
