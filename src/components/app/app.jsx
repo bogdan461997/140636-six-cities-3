@@ -56,7 +56,6 @@ class App extends PureComponent {
               offer: value
             });
           }}
-          offers={offers}
           onPlaceCardMouseOver={
             (value) => {
               this.setState({

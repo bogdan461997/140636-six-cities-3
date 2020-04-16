@@ -12,11 +12,14 @@ const ICON_ACIVE_CONFIG = {
   iconSize: [30, 30]
 };
 
+const ZOOM = 12;
+const CITY_GEOLOCATION = [52.38333, 4.9];
+
 class Map extends PureComponent {
   constructor(props) {
     super(props);
     this._mapRef = createRef();
-    this.map = null;
+    this.markers = [];
   }
 
   render() {
@@ -26,32 +29,44 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
-    const city = [52.38333, 4.9];
+    this.initMap();
+  }
 
-    const zoom = 12;
+  componentDidUpdate() {
+    const {offers, activeOffers} = this.props;
+
+    this.markers.forEach((marker) => this.map.removeLayer(marker));
+
+    this.addPlacesToMap(offers, ICON_CONFIG);
+    this.addPlacesToMap(activeOffers, ICON_ACIVE_CONFIG);
+  }
+
+  initMap() {
     this.map = leaflet.map(this._mapRef.current, {
-      center: city,
-      zoom: 12,
+      center: CITY_GEOLOCATION,
+      zoom: ZOOM,
       zoomControl: false,
       marker: true
     });
-    this.map.setView(city, zoom);
+    this.map.setView(CITY_GEOLOCATION, ZOOM);
 
     leaflet.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     }).addTo(this.map);
 
+
     this.addPlacesToMap(this.props.offers, ICON_CONFIG);
     this.addPlacesToMap(this.props.activeOffers, ICON_ACIVE_CONFIG);
   }
 
-
   addPlacesToMap(places = [], iconConfig) {
     places.forEach((place) => {
       if (place.location && place.location.latitude && place.location.longitude) {
-        leaflet
+        const marker = leaflet
           .marker([place.location.latitude, place.location.longitude], {icon: leaflet.icon(iconConfig)})
           .addTo(this.map);
+
+        this.markers.push(marker);
       }
     });
   }

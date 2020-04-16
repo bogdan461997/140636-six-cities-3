@@ -1,14 +1,20 @@
 import React from "react";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import Main from "./main.jsx";
+import {Main} from "./main.jsx";
+import {Provider} from 'react-redux';
+import configureStore from "redux-mock-store";
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
 
+const mockStore = configureStore([]);
+
 it(`Should card names be pressed`, () => {
   const onCardNameClick = jest.fn();
+
+  const store = mockStore({});
 
   const offers = [
     {
@@ -116,10 +122,14 @@ it(`Should card names be pressed`, () => {
   ];
 
   const main = mount(
-      <Main
-        onCardNameClick={onCardNameClick}
-        offers={offers}
-      />
+      <Provider store={store}>
+        <Main
+          onCardNameClick={onCardNameClick}
+          offers={offers}
+          onCityClick={() => {}}
+          city={`Amsterdam`}
+        />
+      </Provider>
   );
 
   const titles = main.find(`.place-card__name`);
